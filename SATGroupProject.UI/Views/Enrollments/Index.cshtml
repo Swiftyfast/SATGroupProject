@@ -6,9 +6,13 @@
 
 <h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -23,7 +27,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.EnrollmentDate)
@@ -35,11 +40,18 @@
             @Html.DisplayFor(modelItem => item.Student.FirstName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EnrollmentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EnrollmentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollmentId })
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentId }) @:|
+                @Html.ActionLink("Details", "Details", new { id = item.EnrollmentId }) @:|
+                @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentId })
+            }
+            else
+            {
+                @Html.ActionLink("Details", "Details", new { id = item.EnrollmentId })
+            }
         </td>
     </tr>
-}
+    }
 
 </table>

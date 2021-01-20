@@ -5,10 +5,13 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
+@if (User.IsInRole("Admin"))
+{
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -29,9 +32,17 @@
             @Html.DisplayFor(modelItem => item.SSDescription)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SSID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SSID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SSID })
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.SSID }) @:|
+                @Html.ActionLink("Details", "Details", new { id = item.SSID }) @:|
+                @Html.ActionLink("Delete", "Delete", new { id = item.SSID })
+            }
+            else
+            {
+                @Html.ActionLink("Details", "Details", new { id = item.SSID })
+            }
+
         </td>
     </tr>
 }

@@ -5,10 +5,13 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
+@if (User.IsInRole("Admin"))
+{
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -32,32 +35,41 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreditHours)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Curriculum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Notes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CourseId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CourseId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CourseId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curriculum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) @:|
+                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }) @:|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
+                }
+                else
+                {
+                    @Html.ActionLink("Details", "Details", new { id = item.CourseId })
+                }
+
+            </td>
+        </tr>
+    }
 
 </table>
