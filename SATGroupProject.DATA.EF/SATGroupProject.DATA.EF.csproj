@@ -56,6 +56,7 @@
     <Compile Include="Enrollment.cs">
       <DependentUpon>SATGroupProjectADONET.tt</DependentUpon>
     </Compile>
+    <Compile Include="Metadata\SATGroupProjectMetadata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SATGroupProjectADONET.Context.cs">
       <AutoGen>True</AutoGen>
@@ -113,8 +114,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Metadata\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
