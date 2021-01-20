@@ -1,16 +1,16 @@
 ﻿@model SATGroupProject.DATA.EF.Student
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = $"Details for {Model.Fullname}";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
     <h4>Student</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
 
@@ -24,6 +24,13 @@
 
         <dd>
             @Html.DisplayFor(model => model.LastName)
+        </dd>*@
+        <dt>
+            @Html.DisplayNameFor(model => model.Fullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fullname)
         </dd>
 
         <dt>

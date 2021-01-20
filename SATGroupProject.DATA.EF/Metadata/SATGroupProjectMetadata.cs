@@ -77,10 +77,24 @@ namespace SATGroupProject.DATA.EF//.Metadata
         public string Email { get; set; }
         public string PhotoUrl { get; set; }
         public int SSID { get; set; }
+
+        //[Display(Name = "Full Name")]
+        //public string Fullname { get { return LastName + ", " + FirstName; } }
     }
 
     [MetadataType(typeof(StudentMetadata))]
-    public partial class Student { }
+    public partial class Student {
+        //[Display(Name = "Full Name")]
+        //public string FullName
+        //{
+        //    get
+        //    {
+        //        return (FirstName + " " + LastName);
+        //    }
+        //}
+        [Display(Name = "Full Name")]
+        public string Fullname { get { return LastName + ", " + FirstName; } }
+    }
     #endregion
 
     #region StudentStatus
@@ -124,7 +138,10 @@ namespace SATGroupProject.DATA.EF//.Metadata
     }
 
     [MetadataType(typeof(ScheduledClassMetadata))]
-    public partial class ScheduledClass { }
+    public partial class ScheduledClass {
+
+        
+    }
     #endregion
 
     #region ScheduledClassStatus
