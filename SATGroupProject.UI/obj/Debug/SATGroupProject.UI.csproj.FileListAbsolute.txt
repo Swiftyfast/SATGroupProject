@@ -208,3 +208,6 @@ C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGro
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.UI\obj\Debug\SATGroupProject.UI.csproj.CopyComplete
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.UI\obj\Debug\SATGroupProject.UI.dll
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.UI\obj\Debug\SATGroupProject.UI.pdb
+C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\11_PMFD\SATGroupProject\SATGroupProject.UI\bin\SATGroupProject.DATA.EF.dll
+C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\11_PMFD\SATGroupProject\SATGroupProject.UI\bin\SATGroupProject.DATA.EF.pdb
+C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\11_PMFD\SATGroupProject\SATGroupProject.UI\bin\SATGroupProject.DATA.EF.dll.config
