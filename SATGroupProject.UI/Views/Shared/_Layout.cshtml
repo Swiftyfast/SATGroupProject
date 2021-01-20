@@ -70,30 +70,19 @@
                 </div>
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                        <li><a href="courses.html">Courses</a></li>
-                        <li><a href="teachers.html">Teachers</a></li>
-                        <li><a href="events.html">Events</a></li>
-                        <li class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="courses.html">Courses</a></li>
-                                <li><a href="course-single.html">Course Single</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li class="dropdown-submenu dropdown">
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span>Sub Menu</span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Second Level Menu</a></li>
-                                        <li><a href="#">Second Level Menu</a></li>
-                                        <li><a href="#">Second Level Menu</a></li>
-                                        <li><a href="#">Second Level Menu</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="news.html">News</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                        <li><a href="@Url.Action("Index", "Courses")">Courses</a></li>
+                        <li><a href="@Url.Action("Index", "Students")">Students</a></li>
+                        <li><a href="@Url.Action("Index", "Enrollments")">Enrollments</a></li>
+                        <li><a href="@Url.Action("Index", "ScheduledClasses")">Scheduled Classes</a></li>
+                        <li><a href="@Url.Action("Index", "StudentStatus")">Student Status</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  " data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                            <div class="dropdown-menu account-dropdown" style="background-color: lightgray;">
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -163,6 +152,16 @@
     <script src="~/Content/js/scripts.min.js"></script>
     <script src="~/Content/js/main.min.js"></script>
     <script src="~/Content/js/custom.js"></script>
+    <script>//use the selector values found (or declared) in your style sheet for the active class –for the code below your stylesheet would look like: .mainmenu ul li.selected a {//code}
+        $('.nav ul li').each(function () {
+            //in this example the class is attached to the li, so you must go one level further to
+            //check the href value of the anchor tag and ensure it matches what is found in the
+            //browser URL
+            if ($(this).find('a').attr('href') == window.location.pathname) {
+                //if they match add the correct class name. $(this) refers to the li (the last item in the DOM specified before the each function)
+                $(this).addClass('active');
+            }
+        });</script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -18,6 +18,8 @@ namespace SATGroupProject.DATA.EF//.Metadata
         [Display(Name = "Scheduled Class ID")]
         public int ScheduledClassId { get; set; }
 
+        [Display(Name = "Enrollment Date")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime EnrollmentDate { get; set; }
 
         public virtual ScheduledClass ScheduledClass { get; set; }
@@ -108,9 +110,11 @@ namespace SATGroupProject.DATA.EF//.Metadata
         public int CourseId { get; set; }
 
         [Display(Name = "Start Date")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime StartDate { get; set; }
 
         [Display(Name = "End Date")]
+        [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime EndDate { get; set; }
 
         [Display(Name = "Instructor Name")]

@@ -211,3 +211,6 @@ C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\11_PMFD\SATGroup
 C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\11_PMFD\SATGroupProject\SATGroupProject.UI\bin\roslyn\vbc.rsp
 C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\11_PMFD\SATGroupProject\SATGroupProject.UI\bin\roslyn\VBCSCompiler.exe
 C:\Users\Student\OneDrive\Documents\Visual Studio 2017\Projects\11_PMFD\SATGroupProject\SATGroupProject.UI\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.UI\bin\SATGroupProject.DATA.EF.dll
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.UI\bin\SATGroupProject.DATA.EF.pdb
+C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.UI\bin\SATGroupProject.DATA.EF.dll.config
