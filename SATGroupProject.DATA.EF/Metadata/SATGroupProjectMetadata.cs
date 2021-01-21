@@ -140,7 +140,8 @@ namespace SATGroupProject.DATA.EF//.Metadata
     [MetadataType(typeof(ScheduledClassMetadata))]
     public partial class ScheduledClass {
 
-        
+        [Display(Name = "Course Information")]
+        public string CourseInformation {  get { return $"Course Name: {Cours.CourseName}\nStart Date: {StartDate:d}\nLocation: {Location}" ; } }
     }
     #endregion
 

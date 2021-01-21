@@ -7,68 +7,77 @@
 <h2>@ViewBag.Title</h2>
 @if (User.IsInRole("Admin"))
 {
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 }
-
 <table class="table">
     <tr>
+        
+        @*<th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>*@
         <th>
-            @Html.DisplayNameFor(model => model.StartDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndDate)
+            @Html.DisplayNameFor(model => model.CourseInformation)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.InstructorName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cours.CourseName)
-        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours.CourseName)
+            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.ScheduledClassStatus.SCSName)
         </th>
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InstructorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cours.CourseName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScheduledClassStatus.SCSName)
-        </td>
-        <td>
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) @:|
-                @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }) @:|
-                @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })
-            }
-            else
-            {
-                @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId })
-            }
+    @foreach (var item in Model)
+    {
+        <tr>
 
-        </td>
-    </tr>
-}
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>*@
+            <td class="tdWithPre">@Html.DisplayFor(modelItem => item.CourseInformation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstructorName)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cours.CourseName)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduledClassStatus.SCSName)
+            </td>
+
+            <td>
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) @:|
+                    @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }) @:|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })
+                }
+                else
+                {
+                    @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId })
+                }
+
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,1 +1,5 @@
 /* Your custom css code goes here */
+
+.tdWithPre {
+    white-space: pre
+}
