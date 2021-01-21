@@ -185,10 +185,46 @@ namespace SATGroupProject.UI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            //Student student = db.Students.Find(id);
+            //db.Students.Remove(student);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
+
+            //Soft Delete
+            Student stu = db.Students.Find(id);
+            if (stu.SSID == 2)
+            {
+                //go from current student to booted
+                stu.SSID = 6;
+                db.SaveChanges();
+                return RedirectToAction("Booted");
+            } else if (stu.SSID == 6)
+            {
+                //go from booted to current student
+                stu.SSID = 2;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            } else
+            {
+                db.Students.Find(id);
+                //redirect to edit page
+                //NEED TO PUT ID HERE
+                //GOOGLE REDIRECTOACTION(EDIT ID)
+                return RedirectToAction("Edit");
+            }
+            //stu.StudentStatus = !stu.IsActive;
+            //db.SaveChanges();
+            //if (course.IsActive)
+            //{
+            //    return RedirectToAction("Index");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Inactive");
+            //}
+            //db.Courses1.Remove(course);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

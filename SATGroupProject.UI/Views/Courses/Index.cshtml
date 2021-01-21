@@ -10,6 +10,11 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+    <div class="row mb-1">
+    <div class="col-md-12 text-left">
+        @Html.ActionLink("View Inactive", "Inactive", "Courses", null, new { @class = "btn btn-warning" })
+    </div>
+</div>
 }
 
 <table class="table">
@@ -26,9 +31,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Curriculum)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.IsActive)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -47,9 +52,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Curriculum)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
+            </td>*@
             <td>
                 @if (User.IsInRole("Admin"))
                 {

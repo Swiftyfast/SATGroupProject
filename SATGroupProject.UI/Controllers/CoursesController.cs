@@ -17,7 +17,13 @@ namespace SATGroupProject.UI.Controllers
         // GET: Courses
         public ActionResult Index()
         {
-            return View(db.Courses1.ToList());
+            return View(db.Courses1.Where(p => p.IsActive).ToList());
+        }
+
+        //custom action for inactive publishers
+        public ActionResult Inactive()
+        {
+            return View(db.Courses1.Where(p => !p.IsActive).ToList());
         }
 
         // GET: Courses/Details/5
@@ -115,10 +121,21 @@ namespace SATGroupProject.UI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
+
+            //Soft Delete
             Course course = db.Courses1.Find(id);
-            db.Courses1.Remove(course);
+            course.IsActive = !course.IsActive;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            if (course.IsActive)
+            {
+                return RedirectToAction("Index");
+            } else
+            {
+                return RedirectToAction("Inactive");
+            }
+            //db.Courses1.Remove(course);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
