@@ -6,108 +6,109 @@
 
 <h2>@ViewBag.Title</h2>
 
-<div class="col-md-4">
-    <img src="~/Content/img/StudentImages/@Model.PhotoUrl" style="max-width: 275px;" alt="Student Image" title="@Model.Fullname" />
-</div>
-<div class="col-md-8">
-    <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+    <div class="col-md-4">
+        <img src="~/Content/img/StudentImages/@Model.PhotoUrl" style="max-width: 275px;" alt="Student Image" title="@Model.Fullname" />
+    </div>
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>*@
-        <dt>
-            @Html.DisplayNameFor(model => model.Fullname)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fullname)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>*@
+            <dt>
+                @Html.DisplayNameFor(model => model.Fullname)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Major)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Fullname)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Major)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Major)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Major)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhotoUrl)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PhotoUrl)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhotoUrl)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentStatus.SSName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PhotoUrl)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentStatus.SSName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentStatus.SSName)
+            </dt>
 
-    </dl>
-</div>
+            <dd>
+                @Html.DisplayFor(model => model.StudentStatus.SSName)
+            </dd>
+
+        </dl>
+    </div>
 <p>
     @if (User.IsInRole("Admin"))
     {

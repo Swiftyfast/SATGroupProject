@@ -1,15 +1,13 @@
 ﻿@model SATGroupProject.DATA.EF.StudentStatus
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Student Statuses";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>StudentStatus</h4>
-    <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal detailsShape">
         <dt>
             @Html.DisplayNameFor(model => model.SSName)
         </dt>

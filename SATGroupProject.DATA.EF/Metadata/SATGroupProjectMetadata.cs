@@ -106,7 +106,7 @@ namespace SATGroupProject.DATA.EF//.Metadata
         [Display(Name = "Student Status Name")]
         public string SSName { get; set; }
 
-        [Display(Name = "Student Status Description")]
+        [Display(Name = "Description")]
         public string SSDescription { get; set; }
     }
 
