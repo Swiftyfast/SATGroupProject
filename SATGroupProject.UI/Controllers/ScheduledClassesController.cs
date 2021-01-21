@@ -37,7 +37,6 @@ namespace SATGroupProject.UI.Controllers
         }
 
         // GET: ScheduledClasses/Create
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
@@ -67,7 +66,6 @@ namespace SATGroupProject.UI.Controllers
         }
 
         // GET: ScheduledClasses/Edit/5
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
@@ -105,7 +103,6 @@ namespace SATGroupProject.UI.Controllers
         }
 
         // GET: ScheduledClasses/Delete/5
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {

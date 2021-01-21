@@ -1,18 +1,17 @@
 ﻿@model SATGroupProject.DATA.EF.Student
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit " + Model.Fullname;
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Students", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Student</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.StudentId)
@@ -92,7 +91,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PhotoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PhotoUrl, new { htmlAttributes = new { @class = "form-control" } })
+                <img src="~/Content/img/StudentImages/@Model.PhotoUrl" style="max-width: 100px;" />
+                <input type="file" name="studentPhoto" />
                 @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -100,7 +100,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SSID, "SSID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("SSID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.SSID, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SSID, "", new { @class = "text-danger" })
             </div>
         </div>

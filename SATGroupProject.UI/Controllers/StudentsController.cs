@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SATGroupProject.DATA.EF;
+using SATGroupProject.UI.Utilities;
 
 namespace SATGroupProject.UI.Controllers
 {
@@ -37,7 +39,6 @@ namespace SATGroupProject.UI.Controllers
         }
 
         // GET: Students/Create
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
@@ -51,10 +52,41 @@ namespace SATGroupProject.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student)
+        public ActionResult Create([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student, HttpPostedFileBase studentPhoto)
         {
             if (ModelState.IsValid)
             {
+                #region File Upload
+                string file = "no-image.jpg";
+
+                if (studentPhoto != null)
+                {
+                    file = studentPhoto.FileName;
+                    string ext = file.Substring(file.LastIndexOf('.'));
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    if (goodExts.Contains(ext))
+                    {
+                        if (studentPhoto.ContentLength <= 4194304)
+                        {
+                            file = Guid.NewGuid() + ext;
+
+                            #region Resize
+                            string savePath = Server.MapPath("~/Content/img/StudentImages/");
+
+                            Image convertedImage = Image.FromStream(studentPhoto.InputStream);
+
+                            int maxImageSize = 500;
+                            int maxThumbSize = 100;
+
+                            ImageService.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+                            #endregion
+                        }
+                    
+                    student.PhotoUrl = file;
+                    }
+                }
+                #endregion
                 db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -65,7 +97,6 @@ namespace SATGroupProject.UI.Controllers
         }
 
         // GET: Students/Edit/5
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
@@ -88,10 +119,42 @@ namespace SATGroupProject.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentId,FirstName,LastName,Major,Address,City,State,ZipCode,Phone,Email,PhotoUrl,SSID")] Student student, HttpPostedFileBase studentPhoto)
         {
             if (ModelState.IsValid)
             {
+                #region File Upload
+                string file = "no-image.jpg";
+
+                if (studentPhoto != null)
+                {
+                    file = studentPhoto.FileName;
+                    string ext = file.Substring(file.LastIndexOf('.'));
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    if (goodExts.Contains(ext))
+                    {
+                        if (studentPhoto.ContentLength <= 4194304)
+                        {
+                            file = Guid.NewGuid() + ext;
+
+                            #region Resize
+                            string savePath = Server.MapPath("~/Content/img/StudentImages/");
+
+                            Image convertedImage = Image.FromStream(studentPhoto.InputStream);
+
+                            int maxImageSize = 500;
+                            int maxThumbSize = 100;
+
+                            ImageService.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+                            #endregion
+                        }
+
+                        student.PhotoUrl = file;
+                    }
+                }
+                #endregion
+
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -101,7 +164,6 @@ namespace SATGroupProject.UI.Controllers
         }
 
         // GET: Students/Delete/5
-        [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {

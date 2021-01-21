@@ -22,3 +22,15 @@ C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGro
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\obj\Debug\SATGroupProject.DATA.EF.csproj.CopyComplete
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\obj\Debug\SATGroupProject.DATA.EF.dll
 C:\Users\Student\Documents\Visual Studio 2017\Projects\11_PMFD\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\obj\Debug\SATGroupProject.DATA.EF.pdb
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\bin\Debug\SATGroupProject.DATA.EF.dll.config
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\bin\Debug\SATGroupProject.DATA.EF.dll
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\bin\Debug\SATGroupProject.DATA.EF.pdb
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\bin\Debug\EntityFramework.dll
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\bin\Debug\EntityFramework.xml
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\obj\Debug\SATGroupProject.DATA.EF.csprojAssemblyReference.cache
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\obj\Debug\SATGroupProject.DATA.EF.csproj.CoreCompileInputs.cache
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\obj\Debug\SATGroupProject.DATA.EF.csproj.CopyComplete
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\obj\Debug\SATGroupProject.DATA.EF.dll
+C:\Users\Student\Source\Repos\Swiftyfast\SATGroupProject\SATGroupProject.DATA.EF\obj\Debug\SATGroupProject.DATA.EF.pdb
