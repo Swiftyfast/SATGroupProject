@@ -3,3 +3,34 @@
 .tdWithPre {
     white-space: pre
 }
+
+.renderBodyClass {
+    min-height: 770px;
+}
+
+.renderBodyClass h2{
+    text-align: center;
+}
+
+footer{
+    text-align: center;
+    font-weight: 700;
+}
+
+.detailsShape{
+    width: 60%;
+    margin: auto;
+    border: 2px solid #6A41ED;
+    border-radius: 1em;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+textArea{
+    min-height: 5em;
+    resize: none;
+}
+
+.nav li.selected a{
+    color: lawngreen;
+}
