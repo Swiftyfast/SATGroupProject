@@ -21,6 +21,24 @@ namespace SATGroupProject.UI.Controllers
             return View(scheduledClasses.ToList());
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult Complete(int id)
+        {
+            ScheduledClass scheduledClass = db.ScheduledClasses.Find(id);
+            scheduledClass.SCSID = 3;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Cancel(int id)
+        {
+            ScheduledClass scheduledClass = db.ScheduledClasses.Find(id);
+            scheduledClass.SCSID = 4;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // GET: ScheduledClasses/Details/5
         public ActionResult Details(int? id)
         {

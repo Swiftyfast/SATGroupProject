@@ -69,7 +69,13 @@
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) @:|
                     @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }) @:|
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })*@
+                    if (item.SCSID == 1)
+                    {
+                        @Html.ActionLink("Complete", "Complete", new { id = item.ScheduledClassId}) @:|
+                        @Html.ActionLink("Cancel", "Cancel", new { id = item.ScheduledClassId})
+                    }
+                        
                 }
                 else
                 {

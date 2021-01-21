@@ -5,7 +5,7 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
+<h3 class="alert-warning">@ViewBag.Message</h3>
 @if (User.IsInRole("Admin"))
 {
     <p>
@@ -16,13 +16,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
+            @Html.DisplayNameFor(model => model.ScheduledClass.CourseInformation)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ScheduledClass.InstructorName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student.FirstName)
+            @Html.DisplayNameFor(model => model.Student.Fullname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
         </th>
         <th></th>
     </tr>
@@ -30,14 +33,16 @@
     @foreach (var item in Model)
     {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnrollmentDate)
+        <td class="tdWithPre">@Html.DisplayFor(modelItem => item.ScheduledClass.CourseInformation)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ScheduledClass.InstructorName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Student.FirstName)
+            @Html.DisplayFor(modelItem => item.Student.Fullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EnrollmentDate)
         </td>
         <td>
             @if (User.IsInRole("Admin"))

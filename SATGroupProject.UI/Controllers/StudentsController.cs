@@ -23,6 +23,11 @@ namespace SATGroupProject.UI.Controllers
             return View(students.ToList());
         }
 
+        public ActionResult Booted()
+        {
+            return View(db.Students.Where(p => p.SSID == 6).ToList());
+        }
+
         // GET: Students/Details/5
         public ActionResult Details(int? id)
         {
@@ -192,12 +197,22 @@ namespace SATGroupProject.UI.Controllers
 
             //Soft Delete
             Student stu = db.Students.Find(id);
+            
             if (stu.SSID == 2)
             {
-                //go from current student to booted
-                stu.SSID = 6;
-                db.SaveChanges();
-                return RedirectToAction("Booted");
+                //check to see if they are currently enrolled
+                if (stu.Enrollments.ToList().Count > 0)
+                {
+                    //Add some text
+                    ViewBag.Message = "Please unenroll the student before moving to booted.";
+                    return RedirectToAction("Index", "Enrollments");
+                } else //If they arent currently enrolled
+                {
+                    //go from current student to booted
+                    stu.SSID = 6;
+                    db.SaveChanges();
+                    return RedirectToAction("Booted");
+                }
             } else if (stu.SSID == 6)
             {
                 //go from booted to current student
@@ -210,21 +225,10 @@ namespace SATGroupProject.UI.Controllers
                 //redirect to edit page
                 //NEED TO PUT ID HERE
                 //GOOGLE REDIRECTOACTION(EDIT ID)
-                return RedirectToAction("Edit");
+                //return RedirectToAction("ActionName", "Controller", new { arg = updatedResultsDocument });
+                return RedirectToAction("Edit", "Students", new { id = id });
             }
-            //stu.StudentStatus = !stu.IsActive;
-            //db.SaveChanges();
-            //if (course.IsActive)
-            //{
-            //    return RedirectToAction("Index");
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Inactive");
-            //}
-            //db.Courses1.Remove(course);
-            //db.SaveChanges();
-            //return RedirectToAction("Index");
+
         }
 
         protected override void Dispose(bool disposing)
