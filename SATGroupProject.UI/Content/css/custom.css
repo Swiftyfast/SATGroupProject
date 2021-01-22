@@ -43,3 +43,7 @@ textArea{
     text-align: right;
     margin-bottom: 0;
 }
+
+.whiteText{
+    color: white;
+}
