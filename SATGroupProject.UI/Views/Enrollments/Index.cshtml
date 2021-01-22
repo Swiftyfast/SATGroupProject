@@ -4,59 +4,62 @@
     ViewBag.Title = "Enrollments";
 }
 
-<h2>@ViewBag.Title</h2>
-<h3 class="alert-warning">@ViewBag.Message</h3>
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-}
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ScheduledClass.CourseInformation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ScheduledClass.InstructorName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.Fullname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EnrollmentDate)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    @*<h3 class="alert-warning">@ViewBag.Message</h3>*@
+    @if (User.IsInRole("Admin"))
     {
-    <tr>
-        <td class="tdWithPre">@Html.DisplayFor(modelItem => item.ScheduledClass.CourseInformation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScheduledClass.InstructorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.Fullname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnrollmentDate)
-        </td>
-        <td>
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.EnrollmentId }) @:|
-                @Html.ActionLink("Details", "Details", new { id = item.EnrollmentId }) @:|
-                @Html.ActionLink("Delete", "Delete", new { id = item.EnrollmentId })
-            }
-            else
-            {
-                @Html.ActionLink("Details", "Details", new { id = item.EnrollmentId })
-            }
-        </td>
-    </tr>
+        <div class="row mb-1">
+            <div class="col-md-2 text-left">
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
     }
 
-</table>
+    <table class="table">
+        <tr>
+            <th >
+                @Html.DisplayNameFor(model => model.ScheduledClass.CourseInformation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduledClass.InstructorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.Fullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrollmentDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="tdWithPre">@Html.DisplayFor(modelItem => item.ScheduledClass.CourseInformation)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScheduledClass.InstructorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.Fullname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Edit", "Enrollments", new { id = item.EnrollmentId })"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="@Url.Action("Details", "Enrollments", new { id = item.EnrollmentId })"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                        <a href="@Url.Action("Delete", "Enrollments", new { id = item.EnrollmentId })"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Details", "Enrollments", new { id = item.EnrollmentId })"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -4,53 +4,56 @@
     ViewBag.Title = "Scheduled Classes";
 }
 
-<h2>@ViewBag.Title</h2>
-@if (User.IsInRole("Admin"))
-{
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-}
-<table class="table">
-    <tr>
-        
-        @*<th>
-                @Html.DisplayNameFor(model => model.StartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndDate)
-            </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.CourseInformation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InstructorName)
-        </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cours.CourseName)
-            </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.ScheduledClassStatus.SCSName)
-        </th>
-
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    @if (User.IsInRole("Admin"))
     {
+        <div class="row mb-1">
+            <div class="col-md-2 text-left">
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+    }
+    <table class="table">
         <tr>
 
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.StartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndDate)
-                </td>*@
-            <td class="tdWithPre">@Html.DisplayFor(modelItem => item.CourseInformation)
-            </td>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.StartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EndDate)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.CourseInformation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstructorName)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cours.CourseName)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.ScheduledClassStatus.SCSName)
+            </th>
+
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </td>*@
+                <td class="tdWithPre">@Html.DisplayFor(modelItem => item.CourseInformation)</td>
             <td>
                 @Html.DisplayFor(modelItem => item.InstructorName)
             </td>
@@ -67,23 +70,27 @@
             <td>
                 @if (User.IsInRole("Admin"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ScheduledClassId }) @:|
-                    @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId }) @:|
+                    <a href="@Url.Action("Edit", "ScheduledClasses", new { id = item.ScheduledClassId })"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                    <a href="@Url.Action("Details", "ScheduledClasses", new { id = item.ScheduledClassId })"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                     @*@Html.ActionLink("Delete", "Delete", new { id = item.ScheduledClassId })*@
-                    if (item.SCSID == 1)
-                    {
-                        @Html.ActionLink("Complete", "Complete", new { id = item.ScheduledClassId}) @:|
-                        @Html.ActionLink("Cancel", "Cancel", new { id = item.ScheduledClassId})
-                    }
-                        
+                    
+
                 }
                 else
                 {
-                    @Html.ActionLink("Details", "Details", new { id = item.ScheduledClassId })
+                    <a href="@Url.Action("Details", "ScheduledClasses", new { id = item.ScheduledClassId })"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                 }
 
+            </td>
+            <td>
+                @if (item.SCSID == 1 && User.IsInRole("Admin"))
+                {
+                @Html.ActionLink("Complete", "Complete", new { id = item.ScheduledClassId }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Cancel", "Cancel", new { id = item.ScheduledClassId }, new { @class = "btn btn-danger" })
+                }
             </td>
         </tr>
     }
 
-</table>
+    </table>
+</div>

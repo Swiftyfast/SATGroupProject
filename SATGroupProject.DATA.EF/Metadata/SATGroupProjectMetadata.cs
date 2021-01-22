@@ -92,7 +92,7 @@ namespace SATGroupProject.DATA.EF//.Metadata
         //        return (FirstName + " " + LastName);
         //    }
         //}
-        [Display(Name = "Full Name")]
+        [Display(Name = "Student")]
         public string Fullname { get { return LastName + ", " + FirstName; } }
     }
     #endregion
@@ -103,7 +103,7 @@ namespace SATGroupProject.DATA.EF//.Metadata
         [Display(Name = "Student Status ID")]
         public int SSID { get; set; }
 
-        [Display(Name = "Student Status Name")]
+        [Display(Name = "Status")]
         public string SSName { get; set; }
 
         [Display(Name = "Description")]
@@ -131,7 +131,7 @@ namespace SATGroupProject.DATA.EF//.Metadata
         [DisplayFormat(DataFormatString = "{0:d}")]
         public System.DateTime EndDate { get; set; }
 
-        [Display(Name = "Instructor Name")]
+        [Display(Name = "Instructor")]
         public string InstructorName { get; set; }
         public string Location { get; set; }
         public int SCSID { get; set; }

@@ -4,47 +4,51 @@
     ViewBag.Title = "Student Statuses";
 }
 
-<h2>@ViewBag.Title</h2>
-@if (User.IsInRole("Admin"))
-{
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-}
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    @if (User.IsInRole("Admin"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SSName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SSDescription)
-        </th>
-        <th></th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SSName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SSDescription)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SSName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SSDescription)
-        </td>
-        <td>
-            @if (User.IsInRole("Admin"))
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.SSID }) @:|
-                @Html.ActionLink("Details", "Details", new { id = item.SSID }) @:|
-                @Html.ActionLink("Delete", "Delete", new { id = item.SSID })
-            }
-            else
-            {
-                @Html.ActionLink("Details", "Details", new { id = item.SSID })
-            }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSDescription)
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SSID }) @:|
+                        @Html.ActionLink("Details", "Details", new { id = item.SSID }) @:|
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SSID })
+                    }
+                    else
+                    {
+                        //Commented this out because there is no additional information in the details view.
+                       // @Html.ActionLink("Details", "Details", new { id = item.SSID })
+                    }
 
-        </td>
-    </tr>
-}
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

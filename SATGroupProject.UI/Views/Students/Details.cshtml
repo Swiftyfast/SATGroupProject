@@ -7,26 +7,26 @@
 <h2>@ViewBag.Title</h2>
 
 
-    <div class="col-md-4">
+    <div class="col-md-offset-1 col-md-3">
         <img src="~/Content/img/StudentImages/@Model.PhotoUrl" style="max-width: 275px;" alt="Student Image" title="@Model.Fullname" />
     </div>
     <div class="col-md-8">
-        <dl class="dl-horizontal">
+        <dl class="dl-horizontal detailsShape">
             @*<dt>
-                    @Html.DisplayNameFor(model => model.FirstName)
-                </dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.FirstName)
-                </dd>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.LastName)
-                </dd>*@
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>*@
             <dt>
                 @Html.DisplayNameFor(model => model.Fullname)
             </dt>
@@ -106,14 +106,14 @@
             <dd>
                 @Html.DisplayFor(model => model.StudentStatus.SSName)
             </dd>
+            <p class="data-links">
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentId }) @:|
+                }
 
+                @Html.ActionLink("Back to List", "Index")
+            </p>
         </dl>
     </div>
-<p>
-    @if (User.IsInRole("Admin"))
-    {
-        @Html.ActionLink("Edit", "Edit", new { id = Model.StudentId }) @:|
-}
 
-    @Html.ActionLink("Back to List", "Index")
-</p>

@@ -11,8 +11,7 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <hr />
+    <div class="form-horizontal detailsShape">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.StudentId)
 
@@ -105,17 +104,17 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <div class="row">
+            <div class="col-md-offset-7 col-md-2">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div class="col-md-2">
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
