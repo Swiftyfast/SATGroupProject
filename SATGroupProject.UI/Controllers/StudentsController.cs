@@ -190,12 +190,7 @@ namespace SATGroupProject.UI.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
-            //Student student = db.Students.Find(id);
-            //db.Students.Remove(student);
-            //db.SaveChanges();
-            //return RedirectToAction("Index");
-
-            //Soft Delete
+            //Soft Delete (status change)
             Student stu = db.Students.Find(id);
             
             if (stu.SSID == 2)

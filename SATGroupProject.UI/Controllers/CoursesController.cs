@@ -122,7 +122,7 @@ namespace SATGroupProject.UI.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
 
-            //Soft Delete
+            //Soft Delete (bit flip)
             Course course = db.Courses1.Find(id);
             course.IsActive = !course.IsActive;
             db.SaveChanges();

@@ -82,6 +82,7 @@ namespace SATGroupProject.DATA.EF//.Metadata
         //public string Fullname { get { return LastName + ", " + FirstName; } }
     }
 
+    //Below we have a custom property to return Students' full name
     [MetadataType(typeof(StudentMetadata))]
     public partial class Student {
         //[Display(Name = "Full Name")]
@@ -136,7 +137,8 @@ namespace SATGroupProject.DATA.EF//.Metadata
         public string Location { get; set; }
         public int SCSID { get; set; }
     }
-
+    
+    //Below is a custom property to display course information for scheduled classes
     [MetadataType(typeof(ScheduledClassMetadata))]
     public partial class ScheduledClass {
 

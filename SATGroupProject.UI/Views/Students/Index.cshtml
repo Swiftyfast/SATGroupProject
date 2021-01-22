@@ -92,6 +92,7 @@
                 <td>
                     @if (User.IsInRole("Admin"))
                     {
+                        //Below we replaced the CRUD function links with Font Awesome icons for a cleaner look
                         <a href="@Url.Action("Edit", "Students", new { id = item.StudentId })">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>

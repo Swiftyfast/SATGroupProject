@@ -1,5 +1,6 @@
 ﻿@model SATGroupProject.DATA.EF.Student
 
+@*Below we edit the ViewBag to display the name of student being edited*@
 @{
     ViewBag.Title = "Edit " + Model.Fullname;
 }
@@ -103,7 +104,7 @@
                 @Html.ValidationMessageFor(model => model.SSID, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        @* Below are custom buttons for Save & Back to List *@
         <div class="row">
             <div class="col-md-offset-7 col-md-2">
                 <input type="submit" value="Save" class="btn btn-primary" />
