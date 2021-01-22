@@ -38,3 +38,8 @@ textArea{
 .probootstrap-footer {
     padding: 1em 0 0;
 }
+
+.data-links {
+    text-align: right;
+    margin-bottom: 0;
+}

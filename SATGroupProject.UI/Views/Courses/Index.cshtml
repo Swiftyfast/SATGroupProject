@@ -4,71 +4,79 @@
     ViewBag.Title = "Courses";
 }
 
-<h2>@ViewBag.Title</h2>
-@if (User.IsInRole("Admin"))
-{
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-    <div class="row mb-1">
-    <div class="col-md-12 text-left">
-        @Html.ActionLink("View Inactive", "Inactive", "Courses", null, new { @class = "btn btn-warning" })
-    </div>
-</div>
-}
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreditHours)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Curriculum)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>*@
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
+
+<div class="container">
+    <h2>@ViewBag.Title</h2>
+    @if (User.IsInRole("Admin"))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreditHours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Curriculum)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>*@
-            <td>
-                @if (User.IsInRole("Admin"))
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CourseId }) @:|
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId }) @:|
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CourseId })
-                }
-                else
-                {
-                    @Html.ActionLink("Details", "Details", new { id = item.CourseId })
-                }
 
-            </td>
-        </tr>
+
+        <div class="row mb-1">
+            <div class="col-md-2 text-left">
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+            </div>
+            <div class="col-md-2 text-left">
+                @Html.ActionLink("View Inactive", "Inactive", "Courses", null, new { @class = "btn btn-warning" })
+            </div>
+        </div>
     }
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curriculum)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>*@
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreditHours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curriculum)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>*@
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a href="@Url.Action("Edit", "Courses", new { id = item.CourseId })">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        <a href="@Url.Action("Details", "Courses", new { id = item.CourseId })">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </a>
+                        <a href="@Url.Action("Delete", "Courses", new { id = item.CourseId })">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Details", "Courses", new { id = item.CourseId })">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </a>
+                    }
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
