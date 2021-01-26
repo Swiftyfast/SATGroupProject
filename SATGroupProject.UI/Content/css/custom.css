@@ -30,7 +30,7 @@ footer{
     margin-bottom: 5px;
 }
 
-.textArea{
+textArea{
     min-height: 5em;
     resize: none;
 }
