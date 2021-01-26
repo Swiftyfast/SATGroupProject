@@ -8,11 +8,12 @@
     <h2>@ViewBag.Title</h2>
     @if (User.IsInRole("Admin"))
     {
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
+        <div class="row mb-1">
+            <div class="col-md-2 text-left">
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
     }
-
     <table class="table">
         <tr>
             <th>
@@ -36,14 +37,20 @@
                 <td>
                     @if (User.IsInRole("Admin"))
                     {
-                        @Html.ActionLink("Edit", "Edit", new { id = item.SSID }) @:|
-                        @Html.ActionLink("Details", "Details", new { id = item.SSID }) @:|
-                        @Html.ActionLink("Delete", "Delete", new { id = item.SSID })
+                        <a href="@Url.Action("Edit", "StudentStatus", new { id = item.SSID })">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        <a href="@Url.Action("Details", "StudentStatus", new { id = item.SSID })">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </a>
+                        <a href="@Url.Action("Delete", "StudentStatus", new { id = item.SSID })">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </a>
                     }
                     else
                     {
                         //Commented this out because there is no additional information in the details view.
-                       // @Html.ActionLink("Details", "Details", new { id = item.SSID })
+                        // @Html.ActionLink("Details", "Details", new { id = item.SSID })
                     }
 
                 </td>

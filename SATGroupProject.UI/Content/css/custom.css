@@ -25,8 +25,12 @@ footer{
     padding: 1em;
     margin-bottom: 1em;
 }
+.btn {
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
 
-textArea{
+.textArea{
     min-height: 5em;
     resize: none;
 }
